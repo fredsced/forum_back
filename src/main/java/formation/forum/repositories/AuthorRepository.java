@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface AuthorRepository extends JpaRepository <Author, Long> {
 
-   Boolean existsByPseudo(String pseudo);
-   Author findByPseudoIgnoreCase(String pseudo);
+   boolean existsByPseudo(String pseudo);
+   Author findByPseudo(String pseudo);
 }

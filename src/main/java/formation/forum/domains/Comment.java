@@ -7,20 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
-@Table(name="discussions")
-public class Discussion {
-
+@Table(name = "comments")
+public class Comment {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="id_discussion")
+  @Column(name = "id_comment")
   private Long id;
-
-  private String title;
 
   private String text;
 
@@ -28,24 +23,9 @@ public class Discussion {
   @JoinColumn(name="author_id")
   private Author author;
 
-  @OneToMany(mappedBy = "discussion")
-  private List<Comment> comments;
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
+  @ManyToOne
+  @JoinColumn(name="discussion_id")
+  private Discussion discussion;
 
   public String getText() {
     return text;
@@ -63,7 +43,11 @@ public class Discussion {
     this.author = author;
   }
 
-  public List<Comment> getComments() {
-    return comments;
+  public Discussion getDiscussion() {
+    return discussion;
+  }
+
+  public void setDiscussion(Discussion discussion) {
+    this.discussion = discussion;
   }
 }

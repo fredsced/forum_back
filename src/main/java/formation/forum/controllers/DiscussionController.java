@@ -7,6 +7,7 @@ import formation.forum.dtos.EntityIdDto;
 import formation.forum.services.DiscussionService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,11 +40,10 @@ public class DiscussionController {
     return discussionService.getDiscussionById(discussionId);
 
   }
-  @PostMapping("/{discussionId}/comments")
-  public EntityIdDto saveComment(@Valid @RequestBody CommentCreateDto inputs ){
-    //
-    System.out.println("in the comment creation");
-    return new EntityIdDto(1L);
+
+  @PatchMapping("/{discussionId}/comments")
+  public EntityIdDto addComment(@Valid @RequestBody CommentCreateDto inputs, @PathVariable Long discussionId) {
+    return discussionService.addComment(inputs, discussionId);
   }
 
 }
