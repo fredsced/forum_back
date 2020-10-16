@@ -33,7 +33,8 @@ public class DiscussionServiceImpl implements DiscussionService {
 
   @Override
   public DiscussionViewDto getDiscussionById(Long id) throws Exception {
-
+    // code smell
+    // TODO : try to use modelmapper
     Discussion discussionToDisplay = discussionRepository.findById(id).orElseThrow(() -> new Exception("Discussion not found"));
 
     DiscussionViewDto discussionViewDtoToDisplay = new DiscussionViewDto();
@@ -79,6 +80,7 @@ public class DiscussionServiceImpl implements DiscussionService {
     Comment commentToSave = new Comment();
     String pseudo = inputs.getPseudo().trim().toLowerCase();
     commentToSave.setText(inputs.getText());
+    // TODO : TRY to refactor .... same as save method...
     if (authorRepository.existsByPseudo(pseudo)) {
       Author authorRelatedToComment = authorRepository.findByPseudo(pseudo);
       commentToSave.setAuthor(authorRelatedToComment);
