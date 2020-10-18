@@ -12,7 +12,7 @@
 	<artifactId>forum</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>forum</name>
-	<description>ECF Forum </description>
+	<description>ECF Forum</description>
 
 	<properties>
 		<java.version>11</java.version>
