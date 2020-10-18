@@ -1,5 +1,6 @@
 package formation.forum.domains;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,12 +13,12 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name="discussions")
+@Table(name = "discussions")
 public class Discussion {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="id_discussion")
+  @Column(name = "id_discussion")
   private Long id;
 
   private String title;
@@ -25,10 +26,11 @@ public class Discussion {
   private String text;
 
   @ManyToOne
-  @JoinColumn(name="author_id")
+  @JoinColumn(name = "author_id")
   private Author author;
 
-  @OneToMany(mappedBy = "discussion")
+  @OneToMany(cascade = CascadeType.PERSIST)
+  @JoinColumn(name = "discussion_id")
   private List<Comment> comments;
 
   public Long getId() {
@@ -65,5 +67,9 @@ public class Discussion {
 
   public List<Comment> getComments() {
     return comments;
+  }
+
+  public void setComment(Comment comment) {
+    this.getComments().add(comment);
   }
 }

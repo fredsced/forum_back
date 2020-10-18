@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("discussions")
+@RequestMapping("/discussions")
 @CrossOrigin(value = "http://127.0.0.1:5500")
 public class DiscussionController {
 

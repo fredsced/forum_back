@@ -72,9 +72,12 @@ public class DiscussionServiceImpl implements DiscussionService {
       Author authorSaved = authorRepository.save(authorToCreate);
       commentToSave.setAuthor(authorSaved);
     }
-    commentToSave.setDiscussion(discussionRepository.getOne(discussionId));
+    Discussion discussionToUpdated = discussionRepository.getOne(discussionId);
+    commentToSave.setDiscussion(discussionToUpdated);
     Comment commentSaved = commentRepository.save(commentToSave);
-    return new EntityIdDto(commentSaved.getDiscussion().getId());
+    discussionToUpdated.setComment(commentToSave);
+    discussionRepository.save(discussionToUpdated);
+    return new EntityIdDto(discussionToUpdated.getId());
   }
 
 

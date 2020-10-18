@@ -20,11 +20,12 @@ public class Comment {
   private String text;
 
   @ManyToOne
-  @JoinColumn(name="author_id")
+  @JoinColumn(name = "author_id")
   private Author author;
 
   @ManyToOne
-  @JoinColumn(name="discussion_id")
+  @JoinColumn(name = "discussion_id")
+  //@Column(name="discussion_id")
   private Discussion discussion;
 
   public String getText() {

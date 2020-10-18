@@ -8,12 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="authors")
+@Table(name = "authors")
 public class Author {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="id_author")
+  @Column(name = "id_author")
   private Long id;
+  private String pseudo;
 
   public Long getId() {
     return id;
@@ -30,7 +31,5 @@ public class Author {
   public void setPseudo(String pseudo) {
     this.pseudo = pseudo;
   }
-
-  private String pseudo;
 
 }
