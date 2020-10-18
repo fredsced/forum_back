@@ -2,7 +2,7 @@ package formation.forum.controllers;
 
 import formation.forum.dtos.CommentCreateDto;
 import formation.forum.dtos.DiscussionCreateDto;
-import formation.forum.dtos.DiscussionDto;
+import formation.forum.dtos.DiscussionViewDto;
 import formation.forum.dtos.EntityIdDto;
 import formation.forum.services.DiscussionService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,7 +35,7 @@ public class DiscussionController {
   }
 
   @GetMapping("/{discussionId}")
-  public DiscussionDto getDiscussion(@PathVariable Long discussionId) {
+  public DiscussionViewDto getDiscussion(@PathVariable Long discussionId) {
 
     return discussionService.getDiscussionById(discussionId);
 

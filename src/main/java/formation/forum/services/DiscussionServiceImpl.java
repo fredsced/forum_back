@@ -5,7 +5,7 @@ import formation.forum.domains.Comment;
 import formation.forum.domains.Discussion;
 import formation.forum.dtos.CommentCreateDto;
 import formation.forum.dtos.DiscussionCreateDto;
-import formation.forum.dtos.DiscussionDto;
+import formation.forum.dtos.DiscussionViewDto;
 import formation.forum.dtos.EntityIdDto;
 import formation.forum.exceptions.ResourceNotFound;
 import formation.forum.repositories.AuthorRepository;
@@ -29,7 +29,7 @@ public class DiscussionServiceImpl implements DiscussionService {
   }
 
   @Override
-  public DiscussionDto getDiscussionById(Long id) {
+  public DiscussionViewDto getDiscussionById(Long id) {
     return discussionRepository
         .getDiscussionById(id)
         .orElseThrow(() -> new ResourceNotFound("Discussion not found"));
