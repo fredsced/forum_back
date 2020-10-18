@@ -2,6 +2,7 @@ package formation.forum.services;
 
 import formation.forum.dtos.CommentCreateDto;
 import formation.forum.dtos.DiscussionCreateDto;
+import formation.forum.dtos.DiscussionDto;
 import formation.forum.dtos.DiscussionViewDto;
 import formation.forum.dtos.EntityIdDto;
 
@@ -11,7 +12,7 @@ import formation.forum.dtos.EntityIdDto;
 
 public interface DiscussionService {
 
-  DiscussionViewDto  getDiscussionById(Long id) throws Exception;
+  DiscussionDto getDiscussionById(Long id);
 
 
 

@@ -6,8 +6,10 @@ import formation.forum.domains.Discussion;
 import formation.forum.dtos.CommentCreateDto;
 import formation.forum.dtos.CommentViewDto;
 import formation.forum.dtos.DiscussionCreateDto;
+import formation.forum.dtos.DiscussionDto;
 import formation.forum.dtos.DiscussionViewDto;
 import formation.forum.dtos.EntityIdDto;
+import formation.forum.exceptions.ResourceNotFound;
 import formation.forum.repositories.AuthorRepository;
 import formation.forum.repositories.CommentRepository;
 import formation.forum.repositories.DiscussionRepository;
@@ -32,12 +34,14 @@ public class DiscussionServiceImpl implements DiscussionService {
   }
 
   @Override
-  public DiscussionViewDto getDiscussionById(Long id) throws Exception {
+  public DiscussionDto getDiscussionById(Long id) {
     // code smell
     // TODO : try to use modelmapper
-    Discussion discussionToDisplay = discussionRepository.findById(id).orElseThrow(() -> new Exception("Discussion not found"));
+    return discussionRepository
+        .getDiscussionById(id)
+        .orElseThrow(() -> new ResourceNotFound("Discussion not found"));
 
-    DiscussionViewDto discussionViewDtoToDisplay = new DiscussionViewDto();
+    /*DiscussionViewDto discussionViewDtoToDisplay = new DiscussionViewDto();
     discussionViewDtoToDisplay.setTitle(discussionToDisplay.getTitle());
     discussionViewDtoToDisplay.setText(discussionToDisplay.getText());
     discussionViewDtoToDisplay.setAuthor(discussionToDisplay.getAuthor().getPseudo());
@@ -50,7 +54,7 @@ public class DiscussionServiceImpl implements DiscussionService {
     });
     discussionViewDtoToDisplay.setComments(commentViewDtos);
 
-    return discussionViewDtoToDisplay;
+    return discussionViewDtoToDisplay;*/
   }
 
   @Override
