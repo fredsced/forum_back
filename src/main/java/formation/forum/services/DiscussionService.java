@@ -3,7 +3,6 @@ package formation.forum.services;
 import formation.forum.dtos.CommentCreateDto;
 import formation.forum.dtos.DiscussionCreateDto;
 import formation.forum.dtos.DiscussionDto;
-import formation.forum.dtos.DiscussionViewDto;
 import formation.forum.dtos.EntityIdDto;
 
 /**

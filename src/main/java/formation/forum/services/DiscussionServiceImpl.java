@@ -4,19 +4,14 @@ import formation.forum.domains.Author;
 import formation.forum.domains.Comment;
 import formation.forum.domains.Discussion;
 import formation.forum.dtos.CommentCreateDto;
-import formation.forum.dtos.CommentViewDto;
 import formation.forum.dtos.DiscussionCreateDto;
 import formation.forum.dtos.DiscussionDto;
-import formation.forum.dtos.DiscussionViewDto;
 import formation.forum.dtos.EntityIdDto;
 import formation.forum.exceptions.ResourceNotFound;
 import formation.forum.repositories.AuthorRepository;
 import formation.forum.repositories.CommentRepository;
 import formation.forum.repositories.DiscussionRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class DiscussionServiceImpl implements DiscussionService {
@@ -35,26 +30,9 @@ public class DiscussionServiceImpl implements DiscussionService {
 
   @Override
   public DiscussionDto getDiscussionById(Long id) {
-    // code smell
-    // TODO : try to use modelmapper
     return discussionRepository
         .getDiscussionById(id)
         .orElseThrow(() -> new ResourceNotFound("Discussion not found"));
-
-    /*DiscussionViewDto discussionViewDtoToDisplay = new DiscussionViewDto();
-    discussionViewDtoToDisplay.setTitle(discussionToDisplay.getTitle());
-    discussionViewDtoToDisplay.setText(discussionToDisplay.getText());
-    discussionViewDtoToDisplay.setAuthor(discussionToDisplay.getAuthor().getPseudo());
-    List<CommentViewDto> commentViewDtos = new ArrayList<>();
-    discussionToDisplay.getComments().forEach((Comment comment) -> {
-      CommentViewDto commentViewDto = new CommentViewDto();
-      commentViewDto.setText(comment.getText());
-      commentViewDto.setAuthor(comment.getAuthor().getPseudo());
-      commentViewDtos.add(commentViewDto);
-    });
-    discussionViewDtoToDisplay.setComments(commentViewDtos);
-
-    return discussionViewDtoToDisplay;*/
   }
 
   @Override
