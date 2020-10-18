@@ -13,6 +13,8 @@ import formation.forum.repositories.CommentRepository;
 import formation.forum.repositories.DiscussionRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DiscussionServiceImpl implements DiscussionService {
 
@@ -72,10 +74,10 @@ public class DiscussionServiceImpl implements DiscussionService {
       Author authorSaved = authorRepository.save(authorToCreate);
       commentToSave.setAuthor(authorSaved);
     }
-    Discussion discussionToUpdated = discussionRepository.getOne(discussionId);
-    commentToSave.setDiscussion(discussionToUpdated);
+    Discussion discussionToUpdate = discussionRepository.getOne(discussionId);
+    commentToSave.setDiscussion(discussionToUpdate);
     commentRepository.save(commentToSave);
-    return new EntityIdDto(discussionToUpdated.getId());
+    return new EntityIdDto(discussionToUpdate.getId());
   }
 
 

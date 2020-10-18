@@ -25,7 +25,6 @@ public class Comment {
 
   @ManyToOne
   @JoinColumn(name = "discussion_id")
-  //@Column(name="discussion_id")
   private Discussion discussion;
 
   public String getText() {

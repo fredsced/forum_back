@@ -1,6 +1,5 @@
 package formation.forum.domains;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,8 +28,10 @@ public class Discussion {
   @JoinColumn(name = "author_id")
   private Author author;
 
-  @OneToMany(cascade = CascadeType.PERSIST)
-  @JoinColumn(name = "discussion_id")
+  @OneToMany(mappedBy = "discussion")
+  // mappedBy => discussion is the slave side of the bi-directional relation
+  // between discussion and comment
+  // http://blog.paumard.org/cours/jpa/chap03-entite-relation.html
   private List<Comment> comments;
 
   public Long getId() {
@@ -69,7 +70,4 @@ public class Discussion {
     return comments;
   }
 
-  public void setComment(Comment comment) {
-    this.getComments().add(comment);
-  }
 }
