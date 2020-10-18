@@ -19,25 +19,16 @@ public class DiscussionCreateDto {
     return title;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
 
   public String getPseudo() {
     return pseudo;
   }
 
-  public void setPseudo(String pseudo) {
-    this.pseudo = pseudo;
-  }
 
   public String getText() {
     return text;
   }
 
-  public void setText(String text) {
-    this.text = text;
-  }
 
   @Override
   public String toString() {

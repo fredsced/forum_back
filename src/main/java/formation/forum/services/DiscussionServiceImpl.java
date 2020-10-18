@@ -13,8 +13,6 @@ import formation.forum.repositories.CommentRepository;
 import formation.forum.repositories.DiscussionRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class DiscussionServiceImpl implements DiscussionService {
 
