@@ -5,7 +5,7 @@ import formation.forum.domains.Author;
 import java.util.List;
 
 /**
- * A project of {@code Discussion} to display with author and comments
+ * A projection of {@code Discussion} to display with author and comments
  */
 public interface DiscussionDto {
   String getTitle();
