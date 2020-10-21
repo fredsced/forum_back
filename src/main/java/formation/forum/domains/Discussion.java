@@ -30,7 +30,7 @@ public class Discussion {
   private Author author;
 
   @OneToMany(cascade = CascadeType.ALL)
-  @JoinColumn(name="discussion_id", referencedColumnName = "id_discussion")
+  @JoinColumn(name="discussion_id")
   private List<Comment> comments;
 
   public Long getId() {
