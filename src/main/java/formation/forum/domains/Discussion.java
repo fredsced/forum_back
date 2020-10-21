@@ -28,11 +28,6 @@ public class Discussion {
   @JoinColumn(name = "author_id")
   private Author author;
 
-  @OneToMany(mappedBy = "discussion")
-  // mappedBy => discussion is the slave side of the bi-directional relation
-  // between discussion and comment
-  // http://blog.paumard.org/cours/jpa/chap03-entite-relation.html
-  private List<Comment> comments;
 
   public Long getId() {
     return id;
@@ -66,8 +61,6 @@ public class Discussion {
     this.author = author;
   }
 
-  public List<Comment> getComments() {
-    return comments;
-  }
+
 
 }

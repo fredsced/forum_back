@@ -10,7 +10,7 @@ public interface DiscussionViewDto {
 
   String getText();
 
-  List<CommentViewDto> getComments();
+  //List<CommentViewDto> getComments();
 
   AuthorViewDto getAuthor();
 }
