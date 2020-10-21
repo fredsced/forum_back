@@ -23,9 +23,9 @@ public class Comment {
   @JoinColumn(name = "author_id")
   private Author author;
 
-  @ManyToOne
-  @JoinColumn(name = "discussion_id")
-  private Discussion discussion;
+  //@ManyToOne
+  //@JoinColumn(name = "discussion_id")
+  //private Discussion discussion;
 
   public String getText() {
     return text;
@@ -43,11 +43,11 @@ public class Comment {
     this.author = author;
   }
 
-  public Discussion getDiscussion() {
+  /*public Discussion getDiscussion() {
     return discussion;
   }
 
   public void setDiscussion(Discussion discussion) {
     this.discussion = discussion;
-  }
+  }*/
 }
